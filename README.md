@@ -29,7 +29,7 @@ if selected_page == 'About':
     st.markdown('# About')
     st.caption('To Be Decided')
 
-####SECOND PAGE
+#### SECOND PAGE
 if selected_page == 'Home':
     st.markdown('# Home')
     st.caption('To be Decided')

@@ -1,40 +1,40 @@
 # IE-Python2-GroupProject
 
-### LIBRARIES IMPORT 
+#### LIBRARIES IMPORT 
 import streamlit as st
 import pandas as pd
 
-# STANDARD PAGE CONFIGURATIONS
+#### STANDARD PAGE CONFIGURATIONS
 st.set_page_config(layout='wide')
 
-# SAVE FILE SO YOU CAN EASILY NAVIGATE THROUGH DIFFERENT PAGES
+#### SAVE FILE SO YOU CAN EASILY NAVIGATE THROUGH DIFFERENT PAGES
 @st.cache_data
 def load_data(file):
     return pd.read_csv(file) if file is not None else None
 
-# SIDE BAR
+#### SIDE BAR
 
-# Set Title
+#### Set Title
 st.sidebar.title('Configurations')
-# First Function - Upload File
+#### First Function - Upload File
 uploaded_file = st.sidebar.file_uploader('Choose a File to Upload', type=['csv'])
-# Second Button - Radio Button to Navigate across Different Pages
+#### Second Button - Radio Button to Navigate across Different Pages
 selected_page = st.sidebar.radio('Navigation', ['About', 'Home', 'Data Cleaning & Transformation', 'Data Visualizations', 'ML Models'])
 
-# Initialize df as None
+#### Initialize df as None
 df = None
 
-# FIRST PAGE
+#### FIRST PAGE
 if selected_page == 'About':
     st.markdown('# About')
     st.caption('To Be Decided')
 
-# SECOND PAGE
+####SECOND PAGE
 if selected_page == 'Home':
     st.markdown('# Home')
     st.caption('To be Decided')
 
-    # Display the data in an expander if a file is uploaded
+    #### Display the data in an expander if a file is uploaded
     if uploaded_file is None:
         st.warning('Upload a File in CSV Format')
     else:
@@ -45,7 +45,7 @@ if selected_page == 'Home':
             if df is not None:
                 st.dataframe(df)
 
-# THIRD PAGE 
+#### THIRD PAGE 
 if selected_page == 'Data Cleaning & Transformation':
     if uploaded_file is None:
         st.warning("Upload a CSV file to view this page.")
